@@ -1,7 +1,6 @@
 
   # Promo site for cBridge
 
-  This is a code bundle for Promo site for cBridge. The original project is available at https://www.figma.com/design/sr67j5G2Xj1R87KiPkALQg/Promo-site-for-cBridge.
 
   ## Running the code
 
