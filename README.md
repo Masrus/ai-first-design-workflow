@@ -1,6 +1,5 @@
 
-  # Promo site for cBridge
-
+  
 
   ## Running the code
 
