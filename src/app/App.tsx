@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useRef, useState } f
 import type { ReactNode } from 'react';
 import { AnimatePresence, MotionConfig, motion, useInView, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { ChevronDown, LifeBuoy, Search, X } from 'lucide-react';
+import logoUrl from '../assets/logo.svg';
 
 type Language = 'en' | 'ru';
 type Page = 'workflow' | 'tools' | 'lost';
@@ -468,10 +469,7 @@ function TopBar({
           aria-label="SW Design Team"
           className="inline-flex items-center gap-2.5 min-h-[44px] justify-self-start"
         >
-          <span style={{ fontSize: '1rem', fontWeight: 600, letterSpacing: '-0.01em' }}>
-            <span className="sm:hidden">SW</span>
-            <span className="hidden sm:inline">SW Design Team</span>
-          </span>
+          <img src={logoUrl} alt="SW Design Team" className="h-8 sm:h-9 w-auto max-w-none shrink-0 block" />
         </a>
 
         <nav className="flex gap-1 justify-self-center">
@@ -482,13 +480,13 @@ function TopBar({
                 key={l.page}
                 href={linkTo(l.page)}
                 onClick={e => { e.preventDefault(); navigate(l.page); }}
-                className={`relative px-2.5 sm:px-4 min-h-[44px] inline-flex items-center whitespace-nowrap transition-colors text-[0.875rem] sm:text-[1rem] ${
+                className={`relative px-2 sm:px-4 min-h-[44px] inline-flex items-center whitespace-nowrap transition-colors text-[0.875rem] sm:text-[1rem] ${
                   active ? 'text-[#1d1d1f]' : 'text-[#6e6e73] hover:text-[#1d1d1f]'
                 }`}
                 style={{ fontWeight: active ? 600 : 500 }}
               >
                 {l.label[language]}
-                {active && <span className="absolute left-2.5 right-2.5 sm:left-4 sm:right-4 -bottom-[10px] h-0.5 rounded-full bg-[#1d1d1f]" />}
+                {active && <span className="absolute left-2 right-2 sm:left-4 sm:right-4 -bottom-[10px] h-0.5 rounded-full bg-[#1d1d1f]" />}
               </a>
             );
           })}
@@ -499,18 +497,18 @@ function TopBar({
             href={linkTo('lost')}
             onClick={e => { e.preventDefault(); navigate('lost'); }}
             aria-label={lostText.nav[language]}
-            className={`relative px-2.5 sm:px-3 min-h-[44px] inline-flex items-center gap-2 whitespace-nowrap transition-colors ${
+            className={`relative px-2 sm:px-3 min-h-[44px] inline-flex items-center gap-2 whitespace-nowrap transition-colors ${
               lostActive ? 'text-[#1d1d1f]' : 'text-[#6e6e73] hover:text-[#1d1d1f]'
             }`}
             style={{ fontSize: '1rem', fontWeight: lostActive ? 600 : 500 }}
           >
             <LifeBuoy size={18} />
             <span className="hidden md:inline">{lostText.nav[language]}</span>
-            {lostActive && <span className="absolute left-2.5 right-2.5 sm:left-3 sm:right-3 -bottom-[10px] h-0.5 rounded-full bg-[#1d1d1f]" />}
+            {lostActive && <span className="absolute left-2 right-2 sm:left-3 sm:right-3 -bottom-[10px] h-0.5 rounded-full bg-[#1d1d1f]" />}
           </a>
           <button
             onClick={() => setLanguage(language === 'en' ? 'ru' : 'en')}
-            className="h-11 px-2 sm:px-3 rounded-full flex items-center gap-1 hover:bg-white/80 transition-colors"
+            className="h-11 px-1.5 sm:px-3 rounded-full flex items-center gap-1 hover:bg-white/80 transition-colors"
             aria-label={language === 'en' ? 'Switch to Russian' : 'Переключить на английский'}
             style={{ border: 'none', background: 'none', cursor: 'pointer', fontSize: '0.875rem', fontWeight: 600 }}
           >
