@@ -4,3 +4,7 @@ dist/
 *.local
 .env
 .env.*
+
+# tool-local files
+.serena/
+.claude/settings.local.json
